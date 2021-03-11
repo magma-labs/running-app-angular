@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Plugins } from '@capacitor/core';
+const { Geolocation } = Plugins;
+
+declare var google;
 
 @Component({
   selector: 'app-home',
@@ -7,6 +12,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private afAuth: AngularFireAuth) {
+    this.anonLogin()
+  }
 
+  anonLogin() {
+    this.afAuth.auth.signInAnonymously().then(user => {
+      console.log(user);
+    })
+  }
 }
