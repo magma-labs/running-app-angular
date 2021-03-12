@@ -13,12 +13,12 @@ declare var google;
 export class HomePage {
 
   constructor(private afAuth: AngularFireAuth) {
-    this.anonLogin()
+    //this.anonLogin()
   }
 
-  anonLogin() {
-    this.afAuth.auth.signInAnonymously().then(user => {
-      console.log(user);
-    })
-  }
+  //anonLogin() {
+    //this.afAuth.auth.signInAnonymously().then(user => {
+     // console.log(user);
+   // })
+  //}
 }
