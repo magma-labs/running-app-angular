@@ -1,0 +1,63 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  text-align: center;
+  margin-top: 60px;
+}
+
+#inputs_container {
+  justify-content: center;
+  margin: 15px;
+  margin-left: 30;
+  margin-right: 30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; 
+  bottom: 0;
+}
+
+#input_style {
+  margin-top: 20px;
+  outline: none;
+  padding: 10px;
+  width: 290px;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#sign_button {
+  background-color: #8c8c8c;
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 40px;
+  width: 290px;
+  font-size: 15px;
+}
+
+#container a {
+  text-decoration: none;
+}
