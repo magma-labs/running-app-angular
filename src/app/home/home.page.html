@@ -1,20 +1,66 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Running Tracking app
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="user">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            Time:
+          </div>
+        </ion-col>
+        <ion-col>
+          <b [chronometer]="chronometer"></b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>Kcal</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>00</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>Medium pace</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>00</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-text>Distance</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>{{ distanceInMeters ? distanceInMeters : 00 }}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
+
+  <div #map id="map" [hidden]="!user"></div>
+
+  <div *ngIf="user">
+    <ion-button expand="block" (click)="startTracking()" *ngIf="!isTracking">
+      <ion-icon name="locate" slot="start"></ion-icon>
+      Start Tracking
+    </ion-button>
+
+    <ion-button expand="block" (click)="stopTracking()" *ngIf="isTracking">
+      <ion-icon name="locate" slot="start"></ion-icon>
+      Stop Tracking
+    </ion-button>
+    <div>
+      {{ user.uid}}
+    </div>
+  </div>
+
 </ion-content>
