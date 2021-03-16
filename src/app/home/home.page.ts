@@ -44,6 +44,7 @@ export class HomePage {
       center: latLong,
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
     };
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -82,7 +83,7 @@ export class HomePage {
     const flightPath = new google.maps.Polyline({
       path: locations,
       geodesic: true,
-      strokeColor: "#000080",
+      strokeColor: '#000080',
       strokeOpacity: 1.0,
       strokeWeight: 2,
     });
@@ -102,7 +103,7 @@ export class HomePage {
             lng: oldestLocation.lng
         },
         map: this.map,
-        title: "Marker A"
+        title: 'Marker A'
     });
 
     this.markerB = new google.maps.Marker({
@@ -111,10 +112,10 @@ export class HomePage {
           lng: recentLocation.lng
       },
       map: this.map,
-      title: "Marker B"
+      title: 'Marker B'
     });
 
-    var distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(
+    let distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(
       this.markerA.getPosition(),
       this.markerB.getPosition()
     );
@@ -123,11 +124,11 @@ export class HomePage {
   }
 
   centerMap(locations) {
-    var bounds = new google.maps.LatLngBounds();
+    const bounds = new google.maps.LatLngBounds();
 
     if (bounds) {
-      for (let u in locations) {
-        var marker = new google.maps.Marker({
+      for (const u in locations) {
+        let marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[u].lat,
           locations[u].lng),
         });
@@ -142,7 +143,7 @@ export class HomePage {
   startTracking() {
     this.isTracking = true;
 
-    this.run(this.chronometer, 2)
+    this.run(this.chronometer, 2);
     this.watch = Geolocation.watchPosition({}, (position, err) => {
       if (position) {
         this.addNewLocation(
@@ -155,11 +156,11 @@ export class HomePage {
   }
 
   stopTracking() {
-    this.run(this.chronometer, 2)
+    this.run(this.chronometer, 2);
 
     Geolocation.clearWatch({ id: this.watch }).then(() => {
       this.isTracking = false;
-      this.run(this.chronometer, 1)
+      this.run(this.chronometer, 1);
     });
   }
 
