@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'progress',
+    loadChildren: () => import('./progress/progress.module').then( m => m.ProgressPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
