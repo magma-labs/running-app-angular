@@ -1,14 +1,12 @@
 
 <ion-content [fullscreen]="true">
-  <ion-title size="large" id = "title">Sign in</ion-title>
+  <h2 size="large" id = "title">Sign in</h2>
 
   <div id="container">
     <input id='input_style' type="text" placeholder="Email">
     <input id='input_style' type="text" placeholder="Password">
 
-    <button id="sign_button">
-      Sign in
-    </button>
+    <ion-button id='sign_button' [routerLink]="['/progress']">Sign in</ion-button>
   </div>
 
 

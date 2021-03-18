@@ -1,22 +1,50 @@
 
-<ion-content [fullscreen]="true">
-  <div id='progress_title'>
-    <p>back</p>
-    <p>Progress</p>
-    <p></p>
-  </div>
-
-  <div id= 'progress_section_card'>
-    <div id= 'card_header'>
-      <p id='card_title'>Actividades recientes</p>
-      <p id='card_show_more'>Mostrar mas</p>
+<ion-content [fullscreen]="true" >
+  <div id="progress_container">
+    <div id='progress_title'>
+      <img [routerLink]="['/progress']" src="../../assets/chevron.png" alt="image" id="chevron"/>
+      <p>Progress</p>
+      <p></p>
     </div>
-  </div>
+  
+    <div id= 'progress_section_card'>
+      <div id= 'card_row'>
+        <p id='card_title'>Actividades recientes</p>
+        <p id='card_show_more'>Mostrar mas</p>
+      </div>
 
-  <div id= 'progress_section_card'>
-    <div id= 'card_header'>
-      <p id='card_title'> Estadisticas {{name}}</p>
-      <p id='card_show_more'>Mostrar mas</p>
+      <div id= 'card_row'>
+        <div id='card_row'>
+          <img src="../../assets/running.png" alt="image" id="running"/>
+          <div>
+            <p id='card_show_more'>3.72 km</p>
+            <p id='card_show_more'>0:30:56</p>
+          </div>
+        </div>
+        <p id='card_show_more'>Hace 21 horas</p>
+      </div>
+
+      <div id= 'card_row'>
+        <div id='card_row'>
+          <img src="../../assets/running.png" alt="image" id="running"/>
+          <div>
+            <p id='card_show_more'>3.72 km</p>
+            <p id='card_show_more'>0:30:56</p>
+          </div>
+        </div>
+        <p id='card_show_more'>Hace 21 horas</p>
+      </div>
+
+      <div id='add_activity'>
+        <p>Anadir actividad +</p>
+      </div>  
+    </div>
+  
+    <div id= 'progress_section_card'>
+      <div id= 'card_row'>
+        <p id='card_title'> Estaisticas </p>
+        <p id='card_show_more'>Mostrar mas</p>
+      </div>
     </div>
   </div>
 
