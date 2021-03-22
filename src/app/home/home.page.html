@@ -7,44 +7,51 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="user">
-    <ion-grid>
+  <ion-grid *ngIf="user" class="dataHeader">
+    <ion-grid class="time">
       <ion-row>
-        <ion-col>
-          <div>
-            Time:
-          </div>
-        </ion-col>
         <ion-col>
           <b [chronometer]="chronometer"></b>
         </ion-col>
       </ion-row>
+    </ion-grid>
+
+    <ion-grid class="time">
+      <ion-row>
+        <ion-col>
+          Time
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text>{{ calories }}</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>{{ avgrating }}</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>{{ distanceInMeters ? distanceInMeters : 00 }} km/h</ion-text>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col>
           <ion-text>Kcal</ion-text>
         </ion-col>
+
         <ion-col>
-          <ion-text>00</ion-text>
+          <ion-text>Avg. Resting</ion-text>
         </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text>Medium pace</ion-text>
-        </ion-col>
-        <ion-col>
-          <ion-text>00</ion-text>
-        </ion-col>
-      </ion-row>
-      <ion-row>
+
         <ion-col>
           <ion-text>Distance</ion-text>
         </ion-col>
-        <ion-col>
-          <ion-text>{{ distanceInMeters ? distanceInMeters : 00 }}</ion-text>
-        </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </ion-grid>
 
   <div #map id="map" [hidden]="!user"></div>
 
@@ -58,9 +65,5 @@
       <ion-icon name="locate" slot="start"></ion-icon>
       Stop Tracking
     </ion-button>
-    <div>
-      {{ user.uid}}
-    </div>
   </div>
-
 </ion-content>
