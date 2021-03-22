@@ -1,14 +1,39 @@
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <h2 size="large" id = "title">Sign in</h2>
 
-  <div id="container">
-    <input id='input_style' type="text" placeholder="Email">
-    <input id='input_style' type="text" placeholder="Password">
+  <div id="container" >
 
-    <ion-button id='sign_button' [routerLink]="['/progress']">Sign in</ion-button>
+    <div *ngIf="isLogin; else forms">
+      <input id='input_style' type="text" placeholder="Email" [(ngModel)]="email">
+      <input id='input_style' type="text" placeholder="Password" [(ngModel)]="password">
+    </div>
+  
+    <ng-template #forms>
+      <input id='input_style' type="text" placeholder="Email" [(ngModel)]="email">
+      <input id='input_style' type="text" placeholder="Password" [(ngModel)]="password">
+      <input id='input_style' type="text" placeholder="Peso" [(ngModel)]="weight">
+      <input id='input_style' type="text" placeholder="Estatura" [(ngModel)]="height">
+    </ng-template>
+
+
+    <div *ngIf="isLogin; else templateName">
+      <ion-button  (click)="login()" id='sign_button'>Sign in</ion-button>
+    </div>
+  
+    <ng-template #templateName>
+      <ion-button  (click)="signup()" id='sign_button'>Sign up</ion-button>
+    </ng-template>
+
+    <div *ngIf="isLogin; else or">
+      <p id='sign_in' (click)="changeForm()">or Sing up</p>
+    </div>
+  
+    <ng-template #or>
+      <p id='sign_in' (click)="changeForm()">or Sing in</p>
+    </ng-template>
+
+    
   </div>
-
-
 
 </ion-content>
