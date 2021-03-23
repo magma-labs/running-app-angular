@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid *ngIf="user" class="dataHeader">
+  <ion-grid *ngIf="user">
     <ion-grid class="time">
       <ion-row>
         <ion-col>
@@ -26,27 +26,27 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <ion-text>{{ calories }}</ion-text>
+        <ion-col class="textCenter">
+          <ion-text class='calories'>{{ calories }}</ion-text>
         </ion-col>
-        <ion-col>
+        <ion-col class="textCenter">
           <ion-text>{{ avgrating }}</ion-text>
         </ion-col>
-        <ion-col>
+        <ion-col class="textCenter">
           <ion-text>{{ distanceInMeters ? distanceInMeters : 00 }} km/h</ion-text>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col>
+        <ion-col class="textCenter">
           <ion-text>Kcal</ion-text>
         </ion-col>
 
         <ion-col>
-          <ion-text>Avg. Resting</ion-text>
+          <ion-text class="textCenter">Avg. Resting</ion-text>
         </ion-col>
 
-        <ion-col>
+        <ion-col class="textCenter">
           <ion-text>Distance</ion-text>
         </ion-col>
       </ion-row>
