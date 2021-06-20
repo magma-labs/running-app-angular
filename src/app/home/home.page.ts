@@ -28,6 +28,8 @@ export class HomePage {
   markerA = null;
   markerB = null;
   distanceInMeters = null;
+  calories = 0;
+  avgrating = 0;
 
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.anonLogin();
@@ -56,7 +58,7 @@ export class HomePage {
 
       // TODO: change this hardcoded value for: this.user.uid
       this.locationsCollection = this.afs.collection(
-        `locations/${this.user.uid}/track`,
+        `locations/UU46w8P8ASfvMtUkbR8fsPm0F0k2/track`,
         ref => ref.orderBy('timestamp')
       );
 
@@ -115,12 +117,12 @@ export class HomePage {
       title: 'Marker B'
     });
 
-    let distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(
+    const distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(
       this.markerA.getPosition(),
       this.markerB.getPosition()
     );
 
-    this.distanceInMeters = distanceInMeters;
+    this.distanceInMeters = distanceInMeters.toFixed() / 1000;
   }
 
   centerMap(locations) {
